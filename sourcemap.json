@@ -1,0 +1,1 @@
+{"name":"GameFlags","className":"DataModel","filePaths":["default.project.json"],"children":[{"name":"ReplicatedStorage","className":"ReplicatedStorage","children":[{"name":"GameFlags","className":"ModuleScript","filePaths":["src\\GameFlags\\init.luau"],"children":[{"name":"Flags","className":"ModuleScript","filePaths":["src\\GameFlags\\Flags.luau"]}]}]}]}

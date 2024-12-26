@@ -26,7 +26,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ]]--
 
---GameFlags v0.1
+--GameFlags v1
 local UserInputService = game:GetService("UserInputService")
 local Platform = if game:GetService("GuiService"):IsTenFootInterface() then "Console" elseif UserInputService.TouchEnabled and not UserInputService.MouseEnabled then "Mobile" else "Desktop"
 local Flags = require(script.Flags) :: any

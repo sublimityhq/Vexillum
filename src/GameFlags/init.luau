@@ -31,34 +31,27 @@ local UserInputService = game:GetService("UserInputService")
 local Platform = if game:GetService("GuiService"):IsTenFootInterface() then "Console" elseif UserInputService.TouchEnabled and not UserInputService.MouseEnabled then "Mobile" else "Desktop"
 local Flags = require(script.Flags) :: any
 
-local GameFlags = {}
-
-function GameFlags:Initialization()
-	for Flag, Table in Flags do
-		if Table.Type == "Unified" then
-			local FlagInstance = Instance.new("BoolValue")
-			Flags[Flag] = FlagInstance
-			FlagInstance.Name = Flag
-			FlagInstance.Value = Table.Value
-			FlagInstance.Parent = script.Flags
-		elseif Table.Type == "Platform" then
-			local FlagInstance = Instance.new("BoolValue")
-			Flags[Flag] = FlagInstance
-			FlagInstance.Name = Flag
-			FlagInstance.Value = Table.Value[Platform]
-			FlagInstance.Parent = script.Flags
-		else
-			error("An FFlag is not typed correctly!")
-		end
+for Flag, Table in Flags do
+	if Table.Type == "Unified" then
+		local FlagInstance = Instance.new("BoolValue")
+		Flags[Flag] = FlagInstance
+		FlagInstance.Name = Flag
+		FlagInstance.Value = Table.Value
+		FlagInstance.Parent = script.Flags
+	elseif Table.Type == "Platform" then
+		local FlagInstance = Instance.new("BoolValue")
+		Flags[Flag] = FlagInstance
+		FlagInstance.Name = Flag
+		FlagInstance.Value = Table.Value[Platform]
+		FlagInstance.Parent = script.Flags
+	else
+		error("An FFlag is not typed correctly!")
 	end
-	GameFlags.Intialized = true
-	GameFlags.Flags = Flags
 end
 
+local GameFlags = {}
+
 function GameFlags:CheckFlag(Name: string): boolean
-	if not GameFlags.Intialized then
-		error("You have not intialized the GameFlags module.")
-	end
 	if not Flags[Name] then
 		error("Flag does not exist.")
 		return false

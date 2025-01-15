@@ -1,4 +1,4 @@
-# GameFlags
+# Vexillum
 
 ## Why?
 
